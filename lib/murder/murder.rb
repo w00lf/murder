@@ -62,7 +62,7 @@ namespace :murder do
   DESC
   task :stop_seeding, :roles => :seeder do
     require_tag
-    run("pkill -f \"screen.*seeder-#{tag}\"")
+    run("pkill -f \"screen.*seeder-#{tag}\"  && echo 'killed seeder daemon' || echo 'cannot find seeder daemons!' ")
   end
 
   desc <<-DESC
